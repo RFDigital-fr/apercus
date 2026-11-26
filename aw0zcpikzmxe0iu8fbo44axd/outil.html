@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ecoparts 34 – outil de gestion (maquette)</title>
+<link rel="stylesheet" href="../assets/css/maquette.css">
+<link rel="stylesheet" href="../assets/css/demos.css">
+<link rel="stylesheet" href="../assets/css/demo-annonce.css">
+<style>:root { --accent: #22B573; --accent-doux: #A7E1C7; --accent-encre: #188252; }</style>
+</head>
+<body class="o-corps">
+<div class="o-cadre">
+ <nav class="o-menu" aria-label="Menu de l'outil">
+  <div class="o-qui"><strong>Ecoparts 34</strong><span>Outil de gestion · maquette</span></div>
+  <ul>
+   <li><a href="#annonces" aria-current="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Créer une annonce</a></li>
+   <li><a href="#messages" aria-current="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg>Messages et offres</a></li>
+   <li><a href="#commandes" aria-current="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/></svg>Commandes</a></li>
+   <li class="o-sep">Gestion</li>   <li><a href="#stock" aria-current="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 10v10"/></svg>Stock et pièces</a></li>
+   <li><a href="#compatibilite" aria-current="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>Compatibilité</a></li>
+   <li><a href="#factures" aria-current="false"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 14h6M9 18h4"/></svg>Factures</a></li>
+  </ul>
+  <p class="o-retour"><a href="index.html">Revenir à la boutique</a></p>
+ </nav>
+
+ <main class="o-main">
+  <header class="o-haut">
+   <h1>Votre outil de gestion</h1>
+   <p class="o-intro">Annonces, messages, commandes, stock et factures réunis au même endroit, pour toutes vos plateformes de vente. La création d'annonces fonctionne réellement ; le reste de la page est une simulation avec des données fictives.</p>
+   <p class="avertissement">Cette maquette a été préparée de façon automatisée, uniquement pour vous donner un aperçu de ce qui est possible. Il ne s&#x27;agit pas d&#x27;un produit fini : votre véritable outil serait conçu avec vous, sur mesure.</p>
+  </header>
+
+  <section class="o-bloc" id="annonces" aria-labelledby="t-annonces">
+   <div class="o-bloc-tete"><h2 id="t-annonces">Créer une annonce à partir d'une photo</h2><span class="reel">Démo réelle</span></div>
+   <p class="o-bloc-intro">Prenez en photo une pièce ou un article : l'annonce est rédigée, les prix sont proposés, puis elle est prête à être publiée sur eBay, sur eBay international (Espagne, Italie, Allemagne) et sur vos autres plateformes. La publication et la vente qui suivent sont simulées : rien n'est mis en ligne.</p>
+   <div class="o-demo">
+<!-- Bloc de la démo 2, repris du fragment officiel (demos-rf-digital/fragments/demo-annonce.html, non modifié). -->
+<div class="rfd rfd-annonce" data-rfd-annonce data-endpoint="https://nbwlhdyeektezpvhjaih.supabase.co/functions/v1/demo-annonce" data-plateformes="eBay|eBay international (Espagne, Italie, Allemagne)|Autre plateforme">
+  <span class="rfd-badge">Démo RF Digital</span>
+  <h3 class="rfd-titre">Création d’annonces</h3>
+  <p class="rfd-intro">Vous avez droit à 5&nbsp;essais sur 24&nbsp;heures, jusqu’au 11&nbsp;décembre&nbsp;2026.</p>
+
+  <!-- 1. Photo + choix -->
+  <form class="rfd-a-form" novalidate>
+    <div class="rfd-a-photo">
+      <input class="rfd-sr" id="rfd-annonce-fichier" type="file" accept="image/jpeg,image/png,image/heic,image/heif,.jpg,.jpeg,.png,.heic,.heif">
+      <label class="rfd-a-depot" for="rfd-annonce-fichier" data-zone>
+        <span class="rfd-a-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        </span>
+        <span class="rfd-a-depot-texte"><strong>Prendre ou choisir une photo</strong><span>JPG, PNG ou HEIC · 5&nbsp;Mo au maximum</span></span>
+      </label>
+      <figure class="rfd-a-vignette" hidden>
+        <img alt="Votre photo">
+        <figcaption><label class="rfd-lien" for="rfd-annonce-fichier">Changer de photo</label></figcaption>
+      </figure>
+    </div>
+    <p class="rfd-note">Votre photo est analysée puis effacée aussitôt. Elle n’est jamais conservée.</p>
+
+    <fieldset class="rfd-a-choix" data-choix-etat>
+      <legend>Le produit est…</legend>
+      <div class="rfd-a-pastilles">
+        <label><input type="radio" name="rfd-a-type" value="neuf" checked><span>Neuf</span></label>
+        <label><input type="radio" name="rfd-a-type" value="occasion"><span>Occasion</span></label>
+      </div>
+      <div class="rfd-a-pastilles rfd-a-etats" hidden>
+        <label><input type="radio" name="rfd-a-etat" value="comme_neuf" checked><span>Comme neuf</span></label>
+        <label><input type="radio" name="rfd-a-etat" value="tres_bon"><span>Très bon état</span></label>
+        <label><input type="radio" name="rfd-a-etat" value="bon"><span>Bon état</span></label>
+        <label><input type="radio" name="rfd-a-etat" value="correct"><span>État correct</span></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="rfd-a-choix">
+      <legend>Votre stratégie de prix</legend>
+      <div class="rfd-a-strategies">
+        <label><input type="radio" name="rfd-a-strategie" value="rapide"><span><strong>Vendre vite</strong><small>nettement sous le marché</small></span></label>
+        <label><input type="radio" name="rfd-a-strategie" value="marche" checked><span><strong>Prix du marché</strong><small>le prix habituel</small></span></label>
+        <label><input type="radio" name="rfd-a-strategie" value="haut"><span><strong>Un peu au-dessus</strong><small>prendre son temps</small></span></label>
+      </div>
+    </fieldset>
+
+    <div class="rfd-piege" aria-hidden="true">
+      <label>Ne pas remplir ce champ <input type="text" name="site_web" tabindex="-1" autocomplete="off"></label>
+    </div>
+    <button class="rfd-btn" type="submit">Créer l’annonce</button>
+    <p class="rfd-message" role="status" aria-live="polite"></p>
+  </form>
+
+  <!-- 2. Analyse en cours -->
+  <div class="rfd-a-analyse" hidden>
+    <div class="rfd-a-squelette" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <p class="rfd-a-etape" role="status" aria-live="polite">Analyse de la photo…</p>
+  </div>
+
+  <!-- 3. Annonce rédigée -->
+  <article class="rfd-a-annonce" hidden>
+    <div class="rfd-a-annonce-tete">
+      <img class="rfd-a-annonce-img" alt="">
+      <div>
+        <p class="rfd-a-meta"></p>
+        <h4 class="rfd-a-annonce-titre" tabindex="-1"></h4>
+      </div>
+    </div>
+    <p class="rfd-a-description"></p>
+
+    <div class="rfd-a-prix" role="group" aria-label="Prix conseillés"></div>
+    <p class="rfd-note">Les prix sont des estimations indicatives, calculées à partir de la photo et de l’état indiqué.</p>
+
+    <table class="rfd-a-plateformes">
+      <caption>Prix publié sur chaque plateforme <span>(frais vendeur fictifs inclus)</span></caption>
+      <thead><tr><th scope="col">Plateforme</th><th scope="col">Frais</th><th scope="col">Prix affiché</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <button class="rfd-btn" type="button" data-publier>Publier sur les 3 plateformes (simulation)</button>
+  </article>
+
+  <!-- 4. Simulation : publication, vues, message, vente, stock -->
+  <section class="rfd-a-simu" hidden aria-label="Simulation sur 3 plateformes fictives">
+    <p class="rfd-a-stock">Stock : <strong data-stock>1</strong> article</p>
+    <ul class="rfd-a-cartes"></ul>
+    <p class="rfd-a-annonce-direct rfd-sr" role="status" aria-live="polite"></p>
+    <div class="rfd-a-fin" hidden>
+      <p class="rfd-resume">Annonce rédigée, publiée 3&nbsp;fois, vendue, retirée partout : aucune action manuelle.</p>
+      <p class="rfd-a-cta"><strong>Vous voulez la même chose pour vos produits ?</strong> <a href="https://cal.com/rf-digital/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre rendez-vous</a></p>
+      <button class="rfd-lien" type="button" data-rejouer>Rejouer la simulation</button>
+    </div>
+  </section>
+</div>
+
+   </div>
+  </section>
+
+  <section class="o-bloc" id="messages" aria-labelledby="t-messages">
+   <div class="o-bloc-tete"><h2 id="t-messages">Une seule boîte de réception</h2><span class="fictif">Données fictives</span></div>
+   <p class="o-bloc-intro">Les messages et les offres de toutes vos plateformes arrivent ici. Pour chacun, l'IA propose une réponse : vous la validez, vous la modifiez, ou vous l'écartez.</p>
+   <div class="o-boite">
+    <ul class="o-fils" data-fils aria-label="Messages"></ul>
+    <div class="o-lecture" data-lecture aria-live="polite"></div>
+   </div>
+  </section>
+
+  <section class="o-bloc" id="commandes" aria-labelledby="t-commandes">
+   <div class="o-bloc-tete"><h2 id="t-commandes">Commandes</h2><span class="fictif">Clients et commandes fictifs</span></div>
+   <p class="o-bloc-intro">Chaque commande passe d'un onglet à l'autre : envoi à l'équipe, préparation guidée (photos, dimensions, poids), étiquette créée, puis photos et message de remerciement envoyés au client.</p>
+   <div class="o-onglets" role="tablist" aria-label="Statut des commandes" data-onglets></div>
+   <table class="o-table">
+    <thead><tr><th class="o-masque">N°</th><th class="o-large">Article</th><th class="o-masque">Client</th><th class="o-masque">Plateforme</th><th>Montant</th><th><span class="sr">Action</span></th></tr></thead>
+    <tbody data-commandes></tbody>
+   </table>
+   <p class="o-vide" data-commandes-vide hidden>Aucune commande dans cet onglet.</p>
+   <div class="o-prepa" data-prepa hidden aria-live="polite"></div>
+  </section>
+
+  <section class="o-bloc" id="stock" aria-labelledby="t-stock">
+   <div class="o-bloc-tete"><h2 id="t-stock">Stock et pièces</h2><span class="fictif">Emplacements, quantités et statuts fictifs</span></div>
+   <p class="o-bloc-intro">Une fiche par article, avec son emplacement. Quand un article est vendu sur une plateforme, il est retiré automatiquement des autres. Titres, prix et photos ci-dessous sont repris de vos annonces publiques.</p>
+   <table class="o-table">
+    <thead><tr><th class="o-large">Article</th><th>Prix</th><th class="o-masque">Emplacement</th><th class="o-masque">Qté</th><th>Statut</th></tr></thead>
+    <tbody>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/AywAAeSwBpBrBKLU/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅ Réservoir AdBlue avec pompe 9812447080 1682620280 PEUGEOT 508 8D 2016 2.0D</span></div></td>
+      <td class="o-num">399,90 €</td>
+      <td class="o-num o-masque">A1</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">En ligne</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/ki4AAeSwKehrBDg2/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅Store pare-soleil toit panoramique A2047800140 MERCEDES C220 W204 2011</span></div></td>
+      <td class="o-num">99,90 €</td>
+      <td class="o-num o-masque">B2</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">En ligne</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/ow0AAeSwcodrBZpG/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅ 4 Jantes 7,5Jx17H2 ET45 5x112 8K0601025B AUDI A4 B8 8K2 2011</span></div></td>
+      <td class="o-num">319,00 €</td>
+      <td class="o-num o-masque">C3</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">Vendu, retiré partout</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/mv4AAeSwkTprA0pB/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅Bloc ABS servofrein 47270-47030 Toyota Prius III XW30 / ZVW30 2014 1.8ES</span></div></td>
+      <td class="o-num">299,90 €</td>
+      <td class="o-num o-masque">D1</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">En ligne</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/rUIAAeSwPWJo-nwL/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅Interrupteur Start/Stop 61359299332 9299332 MINI ONE R56 2007 69737735</span></div></td>
+      <td class="o-num">41,57 €</td>
+      <td class="o-num o-masque">E2</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">En ligne</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/D4gAAeSwxl5qq7mk/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅Siège avant gauche 52107161875 7161875 BMW X5 2010 E70 xDrive 564932</span></div></td>
+      <td class="o-num">148,75 €</td>
+      <td class="o-num o-masque">F3</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">En ligne</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/oWcAAeSwRHlq8hNI/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅ Commande chauffage climatisation 27500BB50A NISSAN QASHQAI J10 NJ10 2012</span></div></td>
+      <td class="o-num">23,90 €</td>
+      <td class="o-num o-masque">G1</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">Réservé</span></td>
+     </tr>
+     <tr>
+      <td><div class="o-article"><img class="o-mini" src="https://i.ebayimg.com/images/g/FGsAAeSwJYJqv-hn/s-l500.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onload="if(this.naturalWidth<=100&&this.naturalHeight<=100)this.style.visibility='hidden'" onerror="this.style.visibility='hidden'"><span>✅Pompe à huile moteur 757601280 11417614358 MINI ONE R56 2007 1.4 ES</span></div></td>
+      <td class="o-num">67,92 €</td>
+      <td class="o-num o-masque">H2</td>
+      <td class="o-num o-masque">1</td>
+      <td><span class="o-pastille">En ligne</span></td>
+     </tr>
+    </tbody>
+   </table>
+  </section>
+
+  <section class="o-bloc" id="compatibilite" aria-labelledby="t-compat">
+   <div class="o-bloc-tete"><h2 id="t-compat">Aide à la compatibilité</h2><span class="fictif">Exemple fictif</span></div>
+   <p class="o-bloc-intro">Un client donne une référence ou un modèle : l'outil cherche dans vos fiches les articles qui correspondent et prépare la réponse.</p>
+   <form class="o-recherche" data-compat>
+    <label class="sr" for="compat">Référence ou modèle</label>
+    <input id="compat" type="text" value="Référence 0000-EXEMPLE" autocomplete="off">
+    <button class="btn" type="submit">Chercher</button>
+   </form>
+   <div class="o-resultat" data-compat-resultat hidden aria-live="polite">
+    <strong>Résultat d'exemple (fictif)</strong>
+    <ul>
+     <li>Référence retrouvée dans 2 fiches de votre stock : article fictif A et article fictif B.</li>
+     <li>Réponse proposée au client : « Bonjour, oui, cette référence correspond à l'article fictif A, disponible. »</li>
+    </ul>
+   </div>
+  </section>
+
+  <section class="o-bloc" id="factures" aria-labelledby="t-factures">
+   <div class="o-bloc-tete"><h2 id="t-factures">Factures</h2><span class="fictif">Factures fictives</span></div>
+   <p class="o-bloc-intro">La facture est créée à chaque vente et envoyée automatiquement au client, sans saisie.</p>
+   <table class="o-table">
+    <thead><tr><th>N°</th><th class="o-masque">Client</th><th>Montant</th><th class="o-large">Envoi</th></tr></thead>
+    <tbody>
+     <tr>
+      <td class="o-num">F-2026-0318</td>
+      <td class="o-masque">Inès B. (fictif)</td>
+      <td class="o-num">319,00 €</td>
+      <td><span class="o-pastille o-pastille-ok">Envoyée automatiquement au client</span></td>
+     </tr>
+     <tr>
+      <td class="o-num">F-2026-0319</td>
+      <td class="o-masque">Marc D. (fictif)</td>
+      <td class="o-num">299,90 €</td>
+      <td><span class="o-pastille o-pastille-ok">Envoyée automatiquement au client</span></td>
+     </tr>
+     <tr>
+      <td class="o-num">F-2026-0320</td>
+      <td class="o-masque">Sarah P. (fictif)</td>
+      <td class="o-num">41,57 €</td>
+      <td><span class="o-pastille o-pastille-ok">Envoyée automatiquement au client</span></td>
+     </tr>
+    </tbody>
+   </table>
+  </section>
+
+  <footer class="o-pied">
+   <p class="avertissement">Cette maquette a été préparée de façon automatisée, uniquement pour vous donner un aperçu de ce qui est possible. Il ne s&#x27;agit pas d&#x27;un produit fini : votre véritable outil serait conçu avec vous, sur mesure.</p>
+   <div class="o-ligne-btn">
+    <a class="btn" href="https://cal.com/rf-digital/appel-decouverte" target="_blank" rel="noopener noreferrer">Prendre rendez-vous</a>
+    <a class="btn btn-clair" href="index.html">Revenir à la boutique</a>
+   </div>
+   <p>Le premier échange est gratuit et sans engagement. Maquette préparée par RF Digital : <a href="https://rf-digital.fr/" target="_blank" rel="noopener noreferrer">rf-digital.fr</a>.</p>
+  </footer>
+ </main>
+</div>
+<script type="application/json" id="donnees-fictives">{"messages": [{"type": "question", "plateforme": "eBay", "client": "Camille R. (fictif)", "heure": "09:14", "objet": "✅ Réservoir AdBlue avec pompe 9812447080 1682620280…", "texte": "Bonjour, l'article « ✅ Réservoir AdBlue avec pompe 9812447080 1682620280 PEUGEOT 508 8D 2016 2.0D » est-il toujours disponible ? Je souhaite le commander aujourd'hui.", "reponse": "Bonjour,\n\nOui, l'article « ✅ Réservoir AdBlue avec pompe 9812447080 1682620280 PEUGEOT 508 8D 2016 2.0D » est toujours disponible : vous pouvez le commander dès maintenant.\n\nBien cordialement,\nEcoparts 34"}, {"type": "offre", "plateforme": "eBay international (Espagne, Italie, Allemagne)", "client": "Thomas L. (fictif)", "heure": "08:52", "objet": "Offre de 80,00 €", "texte": "Offre de 80,00 € pour « ✅Store pare-soleil toit panoramique A2047800140 MERCEDES C220 W204 2011 » (prix affiché : 99,90 €).", "reponse": "Bonjour,\n\nMerci pour votre offre. Je peux vous proposer 92,00 € pour cet article.\n\nBien cordialement,\nEcoparts 34"}, {"type": "question", "plateforme": "Autre plateforme", "client": "Inès B. (fictif)", "heure": "Hier", "objet": "Compatibilité avec mon modèle ?", "texte": "Bonjour, pouvez-vous me confirmer que « ✅ 4 Jantes 7,5Jx17H2 ET45 5x112 8K0601025B AUDI A4 B8 8K2 2011 » correspond bien à mon modèle ?", "reponse": "Bonjour,\n\nMerci pour votre message. Pour vous confirmer la compatibilité, pouvez-vous m'indiquer la référence inscrite sur votre pièce actuelle, ou le modèle et l'année ? Je vérifie aussitôt.\n\nBien cordialement,\nEcoparts 34"}, {"type": "question", "plateforme": "eBay", "client": "Marc D. (fictif)", "heure": "Hier", "objet": "Colis bien reçu", "texte": "Bonjour, colis bien reçu, tout est en ordre. Merci !", "reponse": "Bonjour,\n\nMerci pour votre retour, ravi que tout soit en ordre. À bientôt !\n\nBien cordialement,\nEcoparts 34"}], "commandes": [{"numero": "C-1041", "titre": "✅ Réservoir AdBlue avec pompe 9812447080 1682620280 PEUGEOT 508 8D 2016 2.0D", "photo": "https://i.ebayimg.com/images/g/AywAAeSwBpBrBKLU/s-l500.jpg", "montant": 399.9, "client": "Camille R. (fictif)", "prenom": "Camille", "plateforme": "eBay", "statut": "a_preparer", "dimensions": [30, 20, 12], "poids": 0.8, "suivi": "FICTIF-8800"}, {"numero": "C-1042", "titre": "✅Store pare-soleil toit panoramique A2047800140 MERCEDES C220 W204 2011", "photo": "https://i.ebayimg.com/images/g/ki4AAeSwKehrBDg2/s-l500.jpg", "montant": 99.9, "client": "Thomas L. (fictif)", "prenom": "Thomas", "plateforme": "eBay international (Espagne, Italie, Allemagne)", "statut": "a_preparer", "dimensions": [40, 30, 20], "poids": 2.4, "suivi": "FICTIF-8837"}, {"numero": "C-1043", "titre": "✅ 4 Jantes 7,5Jx17H2 ET45 5x112 8K0601025B AUDI A4 B8 8K2 2011", "photo": "https://i.ebayimg.com/images/g/ow0AAeSwcodrBZpG/s-l500.jpg", "montant": 319.0, "client": "Inès B. (fictif)", "prenom": "Inès", "plateforme": "Autre plateforme", "statut": "equipe", "dimensions": [25, 18, 10], "poids": 0.5, "suivi": "FICTIF-8874"}, {"numero": "C-1044", "titre": "✅Bloc ABS servofrein 47270-47030 Toyota Prius III XW30 / ZVW30 2014 1.8ES", "photo": "https://i.ebayimg.com/images/g/mv4AAeSwkTprA0pB/s-l500.jpg", "montant": 299.9, "client": "Marc D. (fictif)", "prenom": "Marc", "plateforme": "eBay", "statut": "expediee", "dimensions": [60, 40, 30], "poids": 6.5, "suivi": "FICTIF-8911"}, {"numero": "C-1045", "titre": "✅Interrupteur Start/Stop 61359299332 9299332 MINI ONE R56 2007 69737735", "photo": "https://i.ebayimg.com/images/g/rUIAAeSwPWJo-nwL/s-l500.jpg", "montant": 41.57, "client": "Sarah P. (fictif)", "prenom": "Sarah", "plateforme": "eBay", "statut": "livree", "dimensions": [35, 25, 15], "poids": 1.2, "suivi": "FICTIF-8948"}], "signature": "Ecoparts 34"}</script>
+<script src="../assets/js/outil.js"></script>
+<script src="../assets/js/demo-annonce-photo.js"></script>
+<script src="../assets/js/demo-annonce.js"></script>
+</body>
+</html>

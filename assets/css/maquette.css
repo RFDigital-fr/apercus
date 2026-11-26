@@ -1,0 +1,255 @@
+/* Maquettes de prospection RF Digital : boutique (index.html) et outil de gestion (outil.html).
+   Polices servies par le dépôt lui-même (aucune police ni script tiers). Aucun cookie, aucun traceur.
+   L'accent de la société (--accent) sert aux aplats et aux filets ; le texte coloré utilise --accent-encre
+   (version assombrie, contraste ≥ 4,5:1 sur blanc), calculée par le générateur. */
+
+@font-face { font-family: "Inter"; font-weight: 400; font-display: swap; src: url("../fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 500; font-display: swap; src: url("../fonts/inter-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; font-display: swap; src: url("../fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 600; font-display: swap; src: url("../fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; font-display: swap; src: url("../fonts/montserrat-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  color-scheme: light;
+  --encre: #0B0B0C;
+  --encre-2: #4A4F58;
+  --fond: #FFFFFF;
+  --fond-2: #F5F5F7;
+  --ligne: rgba(11, 11, 12, .1);
+  --ligne-forte: rgba(11, 11, 12, .2);
+  --rf-cyan: #00C8FF;
+  --fictif: #6B4E00;
+  --fictif-fond: #FFF4D6;
+  --rayon: 14px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--fond); color: var(--encre);
+  font: 400 1rem/1.55 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+img { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--encre); outline-offset: 2px; border-radius: 6px; }
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Bandeau imposé ---------- */
+.bandeau {
+  margin: 0; padding: 10px 16px; background: var(--encre); color: #FFFFFF;
+  font-size: .875rem; line-height: 1.4; text-align: center;
+}
+
+/* ---------- Avertissement imposé ---------- */
+.avertissement {
+  margin: 0; padding: 14px 16px; border-left: 4px solid var(--rf-cyan); background: var(--fond-2);
+  border-radius: 0 10px 10px 0; font-size: .9rem; line-height: 1.55; color: var(--encre); max-width: 72ch;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px;
+  padding: 12px 22px; border: 0; border-radius: 999px; background: var(--encre); color: #FFFFFF;
+  font: 600 1rem/1.2 "Inter", system-ui, sans-serif; text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: #2E323A; }
+.btn-clair { background: var(--fond); color: var(--encre); border: 1px solid var(--ligne-forte); }
+.btn-clair:hover { background: var(--fond-2); }
+.btn-petit { min-height: 40px; padding: 8px 16px; font-size: .9rem; }
+
+/* =====================================================================
+   BOUTIQUE (index.html)
+   ===================================================================== */
+.b-page { max-width: 1200px; margin: 0 auto; padding: 0 16px 48px; }
+.b-tete { display: grid; gap: 20px; padding: 40px 0 28px; border-bottom: 1px solid var(--ligne); }
+.b-marque { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.b-logo { width: 96px; height: 96px; object-fit: contain; border-radius: 12px; background: #FFFFFF; border: 1px solid var(--ligne); }
+.b-nom {
+  margin: 0; font: 700 clamp(2.1rem, 6vw, 3.6rem)/1.05 "Montserrat", "Inter", system-ui, sans-serif;
+  letter-spacing: -.025em; overflow-wrap: anywhere;
+}
+/* Trait d'accent sous le nom, comme un surligneur : la seule touche de couleur de la société. */
+.b-nom span { background: linear-gradient(transparent 70%, var(--accent-doux) 70%); padding: 0 .06em; }
+.b-sous { margin: 4px 0 0; color: var(--encre-2); font-size: 1.05rem; }
+.b-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.b-actions .avertissement { flex: 1 1 420px; }
+
+.b-section { padding-top: 32px; }
+.b-section h2 { margin: 0 0 4px; font: 600 1.35rem/1.25 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; }
+.b-section > p { margin: 0 0 20px; color: var(--encre-2); font-size: .95rem; }
+
+.b-grille { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px 20px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.b-carte { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.b-photo {
+  position: relative; display: block; aspect-ratio: 1; border-radius: var(--rayon); overflow: hidden;
+  background: var(--fond-2); border: 1px solid var(--ligne);
+}
+.b-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* Remplacement propre si la photo ne s'affiche plus (annonce vendue ou retirée). */
+.b-photo-absente {
+  position: absolute; inset: 0; display: grid; place-content: center; gap: 6px; padding: 16px; text-align: center;
+  color: var(--encre-2); font-size: .85rem;
+}
+.b-photo-absente svg { margin: 0 auto; }
+.b-titre { margin: 0; font-size: .95rem; font-weight: 500; line-height: 1.4; }
+.b-titre a { text-decoration: none; }
+.b-titre a:hover { text-decoration: underline; text-underline-offset: .18em; }
+.b-etat { margin: 0; font-size: .8rem; color: var(--encre-2); }
+.b-prix { margin: 0; font: 600 1.15rem/1.2 "Inter", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+.b-prix s { margin-left: 8px; font-size: .85rem; font-weight: 400; color: var(--encre-2); }
+.b-boutons { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.b-acheter[disabled] { background: var(--fond-2); color: var(--encre-2); border: 1px dashed var(--ligne-forte); cursor: not-allowed; }
+.b-voir { font-size: .875rem; min-height: 40px; display: inline-flex; align-items: center; color: var(--accent-encre); font-weight: 600; }
+
+.b-pied { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--ligne); display: grid; gap: 12px; color: var(--encre-2); font-size: .875rem; }
+
+@media (max-width: 520px) {
+  .b-tete { padding-top: 28px; }
+  .b-logo { width: 72px; height: 72px; }
+  .b-grille { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 12px; }
+  .b-titre { font-size: .875rem; }
+  .b-boutons .btn { width: 100%; }
+}
+
+/* =====================================================================
+   OUTIL DE GESTION (outil.html) — charte RF Digital
+   ===================================================================== */
+.o-corps { background: var(--fond-2); }
+.o-cadre { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: 100vh; }
+.o-menu {
+  position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto;
+  padding: 24px 16px; background: rgba(255, 255, 255, .86); border-right: 1px solid var(--ligne);
+  backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px);
+}
+.o-qui { padding: 0 8px 20px; }
+.o-qui strong { display: block; font: 700 1.05rem/1.25 "Montserrat", system-ui, sans-serif; overflow-wrap: anywhere; }
+.o-qui span { font-size: .85rem; color: var(--encre-2); }
+.o-menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.o-menu a {
+  display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 8px 10px; border-radius: 10px;
+  text-decoration: none; font-size: .95rem; font-weight: 500; color: var(--encre);
+}
+.o-menu a:hover { background: var(--fond-2); }
+.o-menu a[aria-current="true"] { background: var(--encre); color: #FFFFFF; }
+.o-menu a svg { flex: none; }
+.o-menu .o-sep { margin: 12px 10px 6px; font-size: .78rem; color: var(--encre-2); }
+.o-menu .o-retour { margin-top: 20px; font-size: .875rem; color: var(--encre-2); }
+
+.o-main { min-width: 0; padding: 0 0 64px; }
+.o-haut { padding: 28px 32px 8px; display: grid; gap: 14px; max-width: 1040px; }
+.o-haut h1 { margin: 0; font: 700 clamp(1.6rem, 3.4vw, 2.2rem)/1.15 "Montserrat", system-ui, sans-serif; letter-spacing: -.02em; }
+.o-haut .o-intro { margin: 0; color: var(--encre-2); max-width: 68ch; }
+
+.o-bloc { margin: 20px 32px 0; max-width: 1040px; padding: 28px; background: var(--fond); border-radius: 20px; border: 1px solid var(--ligne); scroll-margin-top: 16px; }
+.o-bloc-tete { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 6px; }
+.o-bloc h2 { margin: 0; font: 700 1.3rem/1.25 "Montserrat", system-ui, sans-serif; letter-spacing: -.01em; }
+.o-bloc-intro { margin: 0 0 20px; color: var(--encre-2); max-width: 68ch; font-size: .95rem; }
+
+.fictif {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px;
+  background: var(--fictif-fond); color: var(--fictif); font-size: .78rem; font-weight: 600; white-space: nowrap;
+}
+.reel { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: #E6F9FF; color: #00536B; font-size: .78rem; font-weight: 600; white-space: nowrap; }
+
+/* Démo 2 dans l'outil : on garde le bloc tel quel, sans fond propre. */
+.o-demo .rfd-badge { display: none; }
+.o-demo .rfd-titre { display: none; }
+.o-demo { max-width: 640px; }
+
+/* ---------- Boîte de réception ---------- */
+.o-boite { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); border: 1px solid var(--ligne); border-radius: var(--rayon); overflow: hidden; min-height: 380px; }
+.o-fils { list-style: none; margin: 0; padding: 0; border-right: 1px solid var(--ligne); background: var(--fond); }
+.o-fils button {
+  width: 100%; display: grid; gap: 2px; padding: 12px 14px; border: 0; border-bottom: 1px solid var(--ligne);
+  background: none; text-align: left; cursor: pointer; font: inherit; color: inherit;
+}
+.o-fils button[aria-selected="true"] { background: var(--fond-2); box-shadow: inset 3px 0 0 var(--encre); }
+.o-fil-l1 { display: flex; justify-content: space-between; gap: 8px; font-size: .875rem; font-weight: 600; }
+.o-fil-l1 span:last-child { font-weight: 400; color: var(--encre-2); white-space: nowrap; }
+.o-fil-objet { font-size: .85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.o-fil-plat { font-size: .78rem; color: var(--encre-2); }
+.o-lecture { padding: 18px 20px; display: grid; align-content: start; gap: 14px; background: var(--fond-2); }
+.o-bulle { margin: 0; padding: 12px 14px; border-radius: 14px; background: var(--fond); border: 1px solid var(--ligne); max-width: 60ch; }
+.o-bulle b { display: block; margin-bottom: 4px; font-size: .8rem; color: var(--encre-2); font-weight: 600; }
+.o-proposition { padding: 14px; border-radius: 14px; background: var(--fond); border: 1.5px solid var(--encre); display: grid; gap: 10px; }
+.o-proposition b { font-size: .8rem; }
+.o-proposition textarea {
+  width: 100%; min-height: 110px; padding: 10px 12px; border: 1px solid var(--ligne-forte); border-radius: 10px;
+  font: 400 16px/1.45 "Inter", system-ui, sans-serif; color: var(--encre); resize: vertical;
+}
+.o-ligne-btn { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.o-confirme { margin: 0; font-size: .9rem; font-weight: 600; }
+
+/* ---------- Commandes ---------- */
+.o-onglets { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 16px; }
+.o-onglets button {
+  min-height: 40px; padding: 8px 14px; border: 1px solid var(--ligne-forte); border-radius: 999px; background: var(--fond);
+  font: 600 .875rem "Inter", system-ui, sans-serif; color: var(--encre); cursor: pointer;
+}
+.o-onglets button[aria-selected="true"] { background: var(--encre); border-color: var(--encre); color: #FFFFFF; }
+.o-onglets .o-nb { font-variant-numeric: tabular-nums; opacity: .7; margin-left: 4px; }
+.o-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.o-table th { text-align: left; font-weight: 600; font-size: .8rem; color: var(--encre-2); padding: 8px 10px; border-bottom: 1px solid var(--ligne-forte); }
+.o-table td { padding: 12px 10px; border-bottom: 1px solid var(--ligne); vertical-align: middle; }
+.o-table td.o-num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.o-mini { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; background: var(--fond-2); border: 1px solid var(--ligne); vertical-align: middle; }
+.o-article { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.o-article span { min-width: 0; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.o-vide { margin: 0; padding: 24px; text-align: center; color: var(--encre-2); }
+
+.o-prepa { margin-top: 20px; padding: 20px; border-radius: var(--rayon); background: var(--fond-2); display: grid; gap: 16px; }
+.o-prepa h3 { margin: 0; font: 600 1.05rem/1.3 "Montserrat", system-ui, sans-serif; }
+.o-etapes { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.o-etapes li { padding: 4px 12px; border-radius: 999px; border: 1px solid var(--ligne-forte); font-size: .8rem; color: var(--encre-2); background: var(--fond); }
+.o-etapes li[data-fait] { background: var(--encre); color: #FFFFFF; border-color: var(--encre); }
+.o-photos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.o-photos figure { margin: 0; aspect-ratio: 1; border-radius: 12px; border: 1.5px dashed var(--ligne-forte); display: grid; place-content: center; gap: 4px; text-align: center; font-size: .78rem; color: var(--encre-2); background: var(--fond); overflow: hidden; }
+.o-photos figure img { width: 100%; height: 100%; object-fit: contain; }
+.o-photos figure.o-ok { border-style: solid; border-color: var(--encre); color: var(--encre); }
+.o-mesures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.o-mesures label { display: grid; gap: 4px; font-size: .8rem; font-weight: 600; }
+.o-mesures input { min-height: 44px; padding: 8px 10px; border: 1px solid var(--ligne-forte); border-radius: 10px; font: 400 16px "Inter", system-ui, sans-serif; width: 100%; }
+.o-etiquette { padding: 16px; border-radius: 12px; background: var(--fond); border: 1.5px solid var(--encre); display: grid; gap: 6px; font-size: .875rem; max-width: 420px; }
+.o-etiquette .o-code { height: 40px; background: repeating-linear-gradient(90deg, var(--encre) 0 2px, transparent 2px 4px, var(--encre) 4px 5px, transparent 5px 8px); border-radius: 2px; }
+.o-message-client { margin: 0; padding: 14px; border-radius: 12px; background: var(--fond); border: 1px solid var(--ligne); white-space: pre-line; font-size: .9rem; max-width: 64ch; }
+
+/* ---------- Stock, compatibilité, factures ---------- */
+.o-recherche { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.o-recherche input { flex: 1 1 260px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--ligne-forte); border-radius: 12px; font: 400 16px "Inter", system-ui, sans-serif; }
+.o-resultat { padding: 16px; border-radius: var(--rayon); background: var(--fond-2); display: grid; gap: 8px; font-size: .9rem; }
+.o-resultat ul { margin: 0; padding-left: 18px; }
+.o-pastille { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .78rem; font-weight: 600; background: var(--fond-2); white-space: nowrap; }
+.o-pastille-ok { background: #E7F6EC; color: #1E6B35; }
+
+.o-pied { margin: 28px 32px 0; max-width: 1040px; display: grid; gap: 14px; }
+.o-pied p { margin: 0; color: var(--encre-2); font-size: .9rem; }
+
+@media (max-width: 900px) {
+  .o-cadre { grid-template-columns: minmax(0, 1fr); }
+  .o-menu {
+    position: sticky; top: 0; z-index: 5; height: auto; padding: 10px 12px; border-right: 0; border-bottom: 1px solid var(--ligne);
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0;
+  }
+  .o-qui { padding: 0 4px; }
+  .o-qui span, .o-menu .o-sep, .o-menu .o-retour { display: none; }
+  .o-menu ul { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .o-menu ul::-webkit-scrollbar { display: none; }
+  .o-menu a { white-space: nowrap; font-size: .875rem; min-height: 36px; padding: 6px 12px; }
+  .o-menu a svg { display: none; }
+  .o-haut { padding: 20px 16px 4px; }
+  .o-bloc { margin: 16px 12px 0; padding: 20px 16px; border-radius: 16px; scroll-margin-top: 110px; }
+  .o-pied { margin: 24px 16px 0; }
+  .o-boite { grid-template-columns: minmax(0, 1fr); }
+  .o-fils { border-right: 0; border-bottom: 1px solid var(--ligne); }
+  .o-mesures { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .o-table .o-masque { display: none; }
+  .o-table { table-layout: fixed; font-size: .85rem; }
+  .o-table th, .o-table td { padding: 10px 6px; }
+  .o-table td.o-num { white-space: normal; overflow-wrap: anywhere; }
+  .o-table th.o-large { width: 44%; }
+  .o-table .btn-petit { white-space: normal; padding: 8px 10px; font-size: .8rem; line-height: 1.2; width: 100%; border-radius: 12px; }
+  .o-table .o-pastille { white-space: normal; }
+  .o-article { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
